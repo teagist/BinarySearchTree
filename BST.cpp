@@ -24,31 +24,31 @@
 template <class T>
 void BST<T>::InsertHelper(const T key, BNode<T>*& subtree)
 {
-	if(subtree)
+    if(subtree)
     {
         if (key < subtree->data)
-		    return InsertHelper(key, subtree->left);
+            return InsertHelper(key, subtree->left);
 		    
         else if (key > subtree->data)
-		    return InsertHelper(key, subtree->right);
+	    return InsertHelper(key, subtree->right);
         else
-		    cerr << "No duplicates allowed, please try again." << endl;
+            cerr << "No duplicates allowed, please try again." << endl;
     }
     
     else
     {
     	try
     	{
-    		subtree = new BNode<T>(key);
+    	    subtree = new BNode<T>(key);
     	}
     	catch (bad_alloc & ex)
     	{
-    		cerr << "Failed to insert " << key << " into the tree due to";
-    		cerr << " bad memory allocation." << endl;
-		}
+    	    cerr << "Failed to insert " << key << " into the tree due to";
+    	    cerr << " bad memory allocation." << endl;
 	}
+    }
         
-	cursor = subtree;
+    cursor = subtree;
 }
 
 
@@ -73,24 +73,24 @@ bool BST<T>::Search(const T key)
 	{
 		if (key < temp->data)
 		{
-			if (temp->left == NULL)
-				return false;
-			else
-				temp = temp->left;
+		    if (temp->left == NULL)
+		        return false;
+		    else
+		        temp = temp->left;
 		}
 		
 		else if (key == temp->data)
 		{
-			cursor = temp;
-			return true;
+		    cursor = temp;
+		    return true;
 		}
 		
 		else
 		{
-			if (temp->right == NULL)
-				return false;
-			else
-				temp = temp->right;
+		    if (temp->right == NULL)
+			return false;
+		    else
+			temp = temp->right;
 		}
 	}
 }
@@ -238,7 +238,7 @@ BNode<T>* BST<T>::GetParent(BNode<T>* subtree)
 template <class T>
 void BST<T>::PrintTree() const
 {
-	if (!root)
+    if (!root)
         return;
 
     else
@@ -412,7 +412,7 @@ void BST<T>::InOrderHelper(const BNode<T>* subtree) const
         if (subtree == cursor)
         	cout << "[" << subtree->data << "] ";
         else
-			cout << subtree->data << " ";
+		cout << subtree->data << " ";
 			
         InOrderHelper(subtree->right);
     }
@@ -454,7 +454,7 @@ void BST<T>::PreOrderHelper(const BNode<T>* subtree) const
     	if (subtree == cursor)
         	cout << "[" << subtree->data << "] ";
         else
-			cout << subtree->data << " ";
+		cout << subtree->data << " ";
 			
         PreOrderHelper(subtree->left);
         PreOrderHelper(subtree->right);
@@ -500,7 +500,7 @@ void BST<T>::PostOrderHelper(const BNode<T>* subtree) const
         if (subtree == cursor)
         	cout << "[" << subtree->data << "] ";
         else
-			cout << subtree->data << " ";
+		cout << subtree->data << " ";
     }
 }
 
