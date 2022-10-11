@@ -55,8 +55,8 @@ void printMenu()
 	cout << "| @     | Print Cursor Value     |" << endl;
 	cout << "| D     | Delete the Tree        |" << endl;
 	cout << "|_______|________________________|" << endl << endl;
-    cout << "Please choose an operation to perform on the tree." << endl;
-    cout << "Enter Q to quit." << endl;	
+        cout << "Please choose an operation to perform on the tree." << endl;
+        cout << "Enter Q to quit." << endl;	
 }
 
 
@@ -76,7 +76,7 @@ void printMenu()
 template <class T> 
 void choose(BST<T>& myTree)
 {
-	char   choice = 'A';
+	char   choice      = 'A';
 	bool   hasInserted = false;
 	T      key;
 	
@@ -231,12 +231,12 @@ T validateInput(T &value)
 			break;
 		else
 		{
-			cin.clear();
-			cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
-			system("cls");
-			printMenu();
-			cerr << endl << "Please enter a valid item for the tree." << endl;
-        	cout << endl << ">> value: ";
+		    cin.clear();
+		    cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+		    system("cls");
+		    printMenu();
+		    cerr << endl << "Please enter a valid item for the tree." << endl;
+        	    cout << endl << ">> value: ";
 		}
 	}
 	return value;
